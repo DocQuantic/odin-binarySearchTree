@@ -54,6 +54,22 @@ export default class BinarySearchTree {
             this.prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
         }
     };
+
+    insert(value, node=this.root){
+        if(value >= node.data){
+            if(node.right == null){
+                node.right = new Node(value)
+            } else {
+                this.insert(value, node.right)
+            }
+        } else if(value < node.data) {
+            if(node.left == null){
+                node.left = new Node(value)
+            } else {
+                this.insert(value, node.left)
+            }
+        }
+    }
 }
 
 class Node {

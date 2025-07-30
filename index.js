@@ -10,6 +10,6 @@ test.insert(300)
 
 test.prettyPrint(test.root)
 
-test.delete(8)
+test.delete(3)
 
 test.prettyPrint(test.root)

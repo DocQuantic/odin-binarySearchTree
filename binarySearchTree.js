@@ -75,10 +75,13 @@ export default class BinarySearchTree {
         if(value == node.data){
             if(node.right == null & node.left == null){
                 dir == "right" ? parent.right = null : parent.left = null
+                return
             } else if(node.left == null & node.right != null){
                 dir == "right" ? parent.right = node.right : parent.left = node.right
+                return
             } else if(node.right == null & node.left != null){
                 dir == "right" ? parent.right = node.left : parent.left = node.left
+                return
             } else {
                 let replacementNode = node.right.left
                 while(replacementNode.left != null){
@@ -86,14 +89,17 @@ export default class BinarySearchTree {
                 }
                 this.delete(replacementNode.data)
                 node.data = replacementNode.data 
+                return
             }
         } else if(value >= node.data){
             if(node.right != null){
                 this.delete(value, node.right, node, "right")
+                return
             }
         } else {
             if(node.left != null){
                 this.delete(value, node.left, node, "left")
+                return
             }
         }
     }

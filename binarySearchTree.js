@@ -70,6 +70,33 @@ export default class BinarySearchTree {
             }
         }
     }
+
+    delete(value, node=this.root, parent=null, dir=null){
+        if(value == node.data){
+            if(node.right == null & node.left == null){
+                dir == "right" ? parent.right = null : parent.left = null
+            } else if(node.left == null & node.right != null){
+                dir == "right" ? parent.right = node.right : parent.left = node.right
+            } else if(node.right == null & node.left != null){
+                dir == "right" ? parent.right = node.left : parent.left = node.left
+            } else {
+                let replacementNode = node.right.left
+                while(replacementNode.left != null){
+                    replacementNode = replacementNode.left
+                }
+                this.delete(replacementNode.data)
+                node.data = replacementNode.data 
+            }
+        } else if(value >= node.data){
+            if(node.right != null){
+                this.delete(value, node.right, node, "right")
+            }
+        } else {
+            if(node.left != null){
+                this.delete(value, node.left, node, "left")
+            }
+        }
+    }
 }
 
 class Node {

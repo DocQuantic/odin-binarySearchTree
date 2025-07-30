@@ -9,3 +9,7 @@ test.prettyPrint(test.root)
 test.insert(300)
 
 test.prettyPrint(test.root)
+
+test.delete(8)
+
+test.prettyPrint(test.root)

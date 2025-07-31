@@ -122,6 +122,22 @@ export default class BinarySearchTree {
             return this.find(value, node.left)
         }
     }
+
+    levelOrderForEach(callback){
+        let queue = [this.root]
+        let node = null
+        for(let i=0; i<queue.length; i++){
+            node = queue[i]
+            callback(node)
+            if(node.left != null){
+                queue.push(node.left)
+            }
+            if(node.right != null){
+                queue.push(node.right)
+            }
+        }
+        return
+    }
 }
 
 class Node {

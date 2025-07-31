@@ -15,3 +15,9 @@ test.delete(7)
 test.prettyPrint(test.root)
 
 console.dir(test.find(3574354))
+
+function hi(node){
+    console.log(node.data)
+}
+
+test.levelOrderForEach(hi)

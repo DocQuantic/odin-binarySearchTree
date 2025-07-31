@@ -10,6 +10,8 @@ test.insert(300)
 
 test.prettyPrint(test.root)
 
-test.delete(3)
+test.delete(7)
 
 test.prettyPrint(test.root)
+
+console.dir(test.find(3574354))

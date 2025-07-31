@@ -103,6 +103,25 @@ export default class BinarySearchTree {
             }
         }
     }
+
+    find(value, node=this.root){
+        if(node.left == null && node.right == null){
+            return null
+        }
+        if(value == node.data){
+            return node
+        } else if(value >= node.data){
+            if(node.right == null){
+                return null
+            }
+            return this.find(value, node.right)
+        } else if(value < node.data){
+            if(node.left == null){
+                return null
+            }
+            return this.find(value, node.left)
+        }
+    }
 }
 
 class Node {

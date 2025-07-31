@@ -20,4 +20,11 @@ function hi(node){
     console.log(node.data)
 }
 
+console.log("level order traversal")
 test.levelOrderForEach(hi)
+console.log("pre-order traversal")
+test.preOrderForEach(hi)
+console.log("in-order traversal")
+test.inOrderForEach(hi)
+console.log("post-order traversal")
+test.postOrderForEach(hi)

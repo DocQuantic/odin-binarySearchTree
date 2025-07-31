@@ -124,6 +124,9 @@ export default class BinarySearchTree {
     }
 
     levelOrderForEach(callback){
+        if(callback == undefined){
+            throw new Error("A callback function is required")
+        }
         let queue = [this.root]
         let node = null
         for(let i=0; i<queue.length; i++){
@@ -136,6 +139,48 @@ export default class BinarySearchTree {
                 queue.push(node.right)
             }
         }
+        return
+    }
+
+    preOrderForEach(callback, node = this.root){
+        if(callback == undefined){
+            throw new Error("A callback function is required")
+        }
+        if(node == null){
+            return
+        }
+
+        callback(node)
+        this.preOrderForEach(callback, node.left)
+        this.preOrderForEach(callback, node.right)
+        return
+    }
+
+    inOrderForEach(callback, node = this.root){
+        if(callback == undefined){
+            throw new Error("A callback function is required")
+        }
+        if(node == null){
+            return
+        }
+
+        this.inOrderForEach(callback, node.left)
+        callback(node)
+        this.inOrderForEach(callback, node.right)
+        return
+    }
+
+    postOrderForEach(callback, node = this.root){
+        if(callback == undefined){
+            throw new Error("A callback function is required")
+        }
+        if(node == null){
+            return
+        }
+
+        this.postOrderForEach(callback, node.left)
+        this.postOrderForEach(callback, node.right)
+        callback(node)
         return
     }
 }

@@ -245,6 +245,17 @@ export default class BinarySearchTree {
             return false
         }
     }
+
+    rebalance(){
+        let array = []
+        function buildArray(node){
+            array.push(node.data)
+        }
+
+        this.inOrderForEach(buildArray)
+
+        this.root = this.buildTree(array)
+    }
 }
 
 class Node {

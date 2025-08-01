@@ -46,3 +46,8 @@ test.delete(23)
 test.prettyPrint(test.root)
 
 console.log(test.isBalanced())
+
+test.rebalance()
+
+test.prettyPrint(test.root)
+console.log(test.isBalanced())

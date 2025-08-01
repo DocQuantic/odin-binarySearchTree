@@ -183,6 +183,17 @@ export default class BinarySearchTree {
         callback(node)
         return
     }
+
+    height(value, node=this.find(value)){
+        if(node == null){
+            return 0
+        }
+        if(node.left == null && node.right == null){
+            return 0
+        } else {
+            return Math.max(this.height(value, node.left), this.height(value, node.right)) + 1
+        }
+    }
 }
 
 class Node {

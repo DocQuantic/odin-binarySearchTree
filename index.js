@@ -28,3 +28,7 @@ console.log("in-order traversal")
 test.inOrderForEach(hi)
 console.log("post-order traversal")
 test.postOrderForEach(hi)
+
+console.log("height")
+
+console.log(test.height(8))

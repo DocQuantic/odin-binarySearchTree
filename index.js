@@ -31,4 +31,8 @@ test.postOrderForEach(hi)
 
 console.log("height")
 
-console.log(test.height(8))
+console.log(test.height(54))
+
+console.log("depth")
+
+console.log(test.depth(8))

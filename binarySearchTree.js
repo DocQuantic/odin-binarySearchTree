@@ -186,12 +186,39 @@ export default class BinarySearchTree {
 
     height(value, node=this.find(value)){
         if(node == null){
-            return 0
+            return null
         }
         if(node.left == null && node.right == null){
             return 0
         } else {
             return Math.max(this.height(value, node.left), this.height(value, node.right)) + 1
+        }
+    }
+
+    depth(value, node=this.root){
+        if(node == null){
+            return null
+        }
+        if(value == node.data){
+            return 0
+        } else if(value >= node.data){
+            if(node.right == null){
+                return null
+            }
+            const depth = this.depth(value, node.right)
+            if(depth == null){
+                return null
+            }
+            return depth + 1
+        } else if(value < node.data){
+            if(node.left == null){
+                return null
+            }
+            const depth = this.depth(value, node.left)
+            if(depth == null){
+                return null
+            }
+            return depth + 1
         }
     }
 }

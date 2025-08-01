@@ -1,53 +1,46 @@
 import {default as Tree} from "./binarySearchTree.js"
 
-const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
 
-const test = new Tree(array)
+const array = Array.from({length: 40}, () => Math.floor(Math.random() * 100));
 
-test.prettyPrint(test.root)
+let testTree = new Tree(array)
 
-test.insert(300)
-
-test.prettyPrint(test.root)
-
-test.delete(7)
-
-test.prettyPrint(test.root)
-
-console.dir(test.find(3574354))
+console.log(testTree.isBalanced())
 
 function hi(node){
     console.log(node.data)
 }
 
-console.log("level order traversal")
-test.levelOrderForEach(hi)
-console.log("pre-order traversal")
-test.preOrderForEach(hi)
-console.log("in-order traversal")
-test.inOrderForEach(hi)
-console.log("post-order traversal")
-test.postOrderForEach(hi)
+testTree.prettyPrint(testTree.root)
 
-console.log("height")
+console.log("level Order")
+testTree.levelOrderForEach(hi)
+console.log("pre Order")
+testTree.preOrderForEach(hi)
+console.log("in Order")
+testTree.inOrderForEach(hi)
+console.log("post Order")
+testTree.postOrderForEach(hi)
 
-console.log(test.height(54))
+testTree.insert(105)
+testTree.insert(160)
+testTree.insert(115)
+testTree.insert(143)
+testTree.insert(121)
 
-console.log("depth")
+testTree.prettyPrint(testTree.root)
 
-console.log(test.depth(8))
+console.log(testTree.isBalanced())
+testTree.rebalance()
+console.log(testTree.isBalanced())
 
-test.prettyPrint(test.root)
+testTree.prettyPrint(testTree.root)
 
-console.log(test.isBalanced())
-
-test.prettyPrint(test.root)
-test.delete(23)
-test.prettyPrint(test.root)
-
-console.log(test.isBalanced())
-
-test.rebalance()
-
-test.prettyPrint(test.root)
-console.log(test.isBalanced())
+console.log("level Order")
+testTree.levelOrderForEach(hi)
+console.log("pre Order")
+testTree.preOrderForEach(hi)
+console.log("in Order")
+testTree.inOrderForEach(hi)
+console.log("post Order")
+testTree.postOrderForEach(hi)

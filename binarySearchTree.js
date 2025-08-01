@@ -221,6 +221,30 @@ export default class BinarySearchTree {
             return depth + 1
         }
     }
+
+    isBalanced(node=this.root){
+        if(node == null){
+            return true
+        } 
+        if(node.left == null && node.right == null){
+            return true
+        }
+        if(node.left == null && node.right != null){
+            if(this.height(node.right.data) > 1){
+                return false
+            }
+            return true
+        } else if(node.left != null && node.right == null){
+            if(this.height(node.left.data) > 1){
+                return false
+            }
+            return true
+        } else if(Math.abs(this.height(node.left.data) - this.height(node.right.data)) <= 1){
+            return this.isBalanced(node.left) && this.isBalanced(node.right)
+        } else {
+            return false
+        }
+    }
 }
 
 class Node {

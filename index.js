@@ -36,3 +36,13 @@ console.log(test.height(54))
 console.log("depth")
 
 console.log(test.depth(8))
+
+test.prettyPrint(test.root)
+
+console.log(test.isBalanced())
+
+test.prettyPrint(test.root)
+test.delete(23)
+test.prettyPrint(test.root)
+
+console.log(test.isBalanced())
